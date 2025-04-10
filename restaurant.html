@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Restaurant Page</title>
+        <style>
+            body {
+                background-color: aqua;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .centered_title {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .container {
+                padding: 20px;
+                margin: 0 auto;
+                width: 90%;
+                max-width: 800px; 
+            }
+
+            .lower_photos {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .lower_photos img, .lower_photos video {
+                height: 20vh;
+                width: auto;
+                max-width: 150px;
+            }
+
+            input[type="text"], select {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                box-sizing: border-box;
+            }
+
+            input[type="checkbox"] {
+                margin-right: 10px;
+            }
+
+         
+            @media (max-width: 768px) {
+        
+                .lower_photos {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .lower_photos img, .lower_photos video {
+                    max-width: 90%;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+
+                .container {
+                    width: 90%;
+                    padding: 15px;
+                }
+
+                .centered_title img {
+                    width: 100%; 
+                    height: auto;
+                }
+            }
+
+    
+            @media (max-width: 480px) {
+                .container {
+                    width: 95%;
+                    padding: 10px;
+                }
+
+                .centered_title h1 {
+                    font-size: 1.5em; 
+                }
+
+                .lower_photos img, .lower_photos video {
+                    max-width: 100%; 
+                    margin: 0;
+                }
+
+                input[type="text"], select {
+                    width: 100%; 
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="centered_title">
+            <h1>Welcome to Our Restaurant</h1>
+            <img src="chickenRoast.jpg" style="height: 30vh; width:70vw; max-width: 100%; object-fit: cover;">
+            <div class="lower_photos">
+                <img src="Money_Quest.jpg" style="height: 20vh; width: 150px;">
+                <video src="mickeyMouse.mp4" type="video/mp4" controls style="height: 20vh; width: 150px;"></video>
+            </div>
+        </div>
+        
+        <div class="container">
+            <span>Enter your name: </span><input type="text" name="name"><br>
+            <span>Choose what you want to order:</span><br>
+            <input type="checkbox" name="food" value="Halal"> <span>Halal</span><br>
+            <input type="checkbox" name="food" value="Spicy"> <span>Spicy</span><br>
+            <input type="checkbox" name="food" value="With Salad"> <span>With Salad</span><br><br>
+            
+            <span>Extras to add:</span><br>
+            <input type="checkbox" name="additions" value="whole" ><span>Whole</span><br>
+            <input type="checkbox" name="additions" value="half"> <span>Half</span><br>
+            <input type="checkbox" name="additions" value="quarter"> <span>Quarter</span><br><br>
+            
+            <span>Choose the date of delivery:</span><br>
+            <select id="time">
+                <option>Today afternoon</option>
+                <option>Tomorrow morning</option>
+                <option>Tomorrow evening</option>
+            </select>
+            <button onClick="getSelected()">submit</button>
+            <div>
+                <h2 class="receipt"></h2>
+                <p class="food_ordered"></p>
+                <p class="additions_ordered"></p>
+                <p class="arrival"></p>
+                <p id="price"></p>
+            </div>
+        </div>
+        <script src="restaurant.js"></script>
+    </body>
+</html>
